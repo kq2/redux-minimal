@@ -6,6 +6,7 @@ const Header = () => (
     <nav>
       <ul>
         <li><NavLink exact to='/'>{'Home'}</NavLink></li>
+        <li><NavLink exact to='/users'>{'Users'}</NavLink></li>
       </ul>
     </nav>
   </header>
