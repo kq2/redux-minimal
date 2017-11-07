@@ -1,9 +1,12 @@
+// @flow
+
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {fetchUsers} from '../redux/actions/users'
+import type {UserListProps} from '../redux/types/users'
 
-class UserList extends Component {
+class UserList extends Component<UserListProps> {
   componentDidMount() {
     this.props.dispatch(fetchUsers());
   }
