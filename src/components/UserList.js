@@ -1,12 +1,33 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
-const UserList = () => (
-  <div>
-    <h1>{'User list'}</h1>
-    <ul>
-      <li>Kevin Qiu</li>
-    </ul>
-  </div>
-);
+import {fetchUsers} from '../redux/actions/users'
 
-export default UserList;
+class UserList extends Component {
+  componentDidMount() {
+    this.props.dispatch(fetchUsers());
+  }
+
+  render() {
+    const {isFetching, users, error} = this.props;
+
+    return (
+      <div>
+        <h1>{'User list'}</h1>
+        {isFetching && <p>Fetching...</p>}
+        {error && <p>{error.message}</p>}
+        <ul>
+          {users.map((user) => <li key={user.id}>{user.login}</li>)}
+        </ul>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    ...state.users,
+  };
+};
+
+export default connect(mapStateToProps)(UserList);
