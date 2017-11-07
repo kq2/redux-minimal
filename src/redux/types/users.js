@@ -1,8 +1,8 @@
 // @flow
 
-import type {Dispatch} from "redux";
+import type { Dispatch } from 'redux';
 
-import type {Error} from "./common";
+import type { Error } from './common';
 
 export type User = {
   id: string,
@@ -26,7 +26,7 @@ export type FetchUsersRequest = {
 export type FetchUsersSuccess = {
   type: 'FETCH_USERS_SUCCESS',
   users: Array<User>,
-}
+};
 
 export type FetchUsersFailure = {
   type: 'FETCH_USERS_FAILURE',
@@ -36,4 +36,4 @@ export type FetchUsersFailure = {
 export type UserListAction =
   | FetchUsersRequest
   | FetchUsersSuccess
-  | FetchUsersFailure
+  | FetchUsersFailure;
