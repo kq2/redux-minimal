@@ -11,6 +11,7 @@ export type User = {
 
 export type UserListState = {
   isFetching: boolean,
+  filter: ?string,
   users: Array<User>,
   error: ?Error,
 };
@@ -18,6 +19,11 @@ export type UserListState = {
 export type UserListProps = {
   dispatch: Dispatch<*>,
 } & UserListState;
+
+export type SetUsersFilter = {
+  type: 'SET_USERS_FILTER',
+  filter: string,
+};
 
 export type FetchUsersRequest = {
   type: 'FETCH_USERS_REQUEST',
@@ -34,6 +40,7 @@ export type FetchUsersFailure = {
 };
 
 export type UserListAction =
+  | SetUsersFilter
   | FetchUsersRequest
   | FetchUsersSuccess
   | FetchUsersFailure;

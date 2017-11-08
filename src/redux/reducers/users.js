@@ -1,6 +1,7 @@
 // @flow
 
 import {
+  SET_USERS_FILTER,
   FETCH_USERS_REQUEST,
   FETCH_USERS_SUCCESS,
   FETCH_USERS_FAILURE,
@@ -9,6 +10,7 @@ import type { UserListState, UserListAction } from '../types/users';
 
 const initialState = {
   isFetching: false,
+  filter: null,
   users: [],
   error: null,
 };
@@ -18,6 +20,11 @@ const reducer = (
   action: UserListAction,
 ) => {
   switch (action.type) {
+    case SET_USERS_FILTER:
+      return {
+        ...state,
+        filter: action.filter,
+      };
     case FETCH_USERS_REQUEST:
       return {
         ...state,
