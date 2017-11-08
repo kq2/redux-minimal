@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import Notification from './Notification';
 import { fetchUsers } from '../redux/actions/users';
 import type { UserListProps } from '../redux/types/users';
 
@@ -17,8 +18,7 @@ class UserList extends Component<UserListProps> {
     return (
       <div>
         <h1>{'User list'}</h1>
-        {isFetching && <p>Fetching...</p>}
-        {error && <p>{error.message}</p>}
+        <Notification isFetching={isFetching} error={error} />
         <ul>{users.map(user => <li key={user.id}>{user.login}</li>)}</ul>
       </div>
     );
