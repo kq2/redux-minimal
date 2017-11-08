@@ -13,7 +13,7 @@ const store = createStore(reducers, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename="/redux-minimal">
       <App />
     </BrowserRouter>
   </Provider>,
