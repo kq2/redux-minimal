@@ -1,6 +1,6 @@
 // @flow
 
-import axios from 'axios';
+import fetch from 'isomorphic-fetch';
 import type { Dispatch } from 'redux';
 
 import type { User } from '../types/users';
@@ -41,8 +41,9 @@ export const fetchUsersFailure = (error: Error) => {
 export const fetchUsers = () => async (dispatch: Dispatch<*>) => {
   dispatch(fetchUsersRequest());
   try {
-    const res = await axios.get('https://api.github.com/users');
-    dispatch(fetchUsersSuccess(res.data));
+    const res = await fetch('https://api.github.com/users');
+    const data = await res.json();
+    dispatch(fetchUsersSuccess(data));
   } catch (error) {
     dispatch(fetchUsersFailure(error));
   }
