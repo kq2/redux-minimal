@@ -19,13 +19,15 @@ const filterUsers = (users, filter) => {
 
 class SearchableUserList extends Component<UserListProps> {
   componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(fetchUsers());
+    const { dispatch, isFetching, users } = this.props;
+    if (!isFetching && !users) {
+      dispatch(fetchUsers());
+    }
   }
 
   render() {
     const { dispatch, filter, isFetching, users, error } = this.props;
-    const visibleUsers = filterUsers(users, filter);
+    const visibleUsers = filterUsers(users || [], filter);
     return (
       <div>
         <h1>{'User list'}</h1>

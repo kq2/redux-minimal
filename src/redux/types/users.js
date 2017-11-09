@@ -12,7 +12,7 @@ export type User = {
 export type UserListState = {
   isFetching: boolean,
   filter: ?string,
-  users: Array<User>,
+  users: ?Array<User>,
   error: ?Error,
 };
 

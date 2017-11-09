@@ -11,7 +11,7 @@ import type { UserListState, UserListAction } from '../types/users';
 const initialState = {
   isFetching: false,
   filter: null,
-  users: [],
+  users: null,
   error: null,
 };
 
