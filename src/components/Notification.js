@@ -4,18 +4,17 @@ import React from 'react';
 
 import type { Error } from '../redux/types/common';
 
-const Notification = ({
-  isFetching,
-  error,
-}: {
+type Props = {
   isFetching: boolean,
   error: ?Error,
-}) => {
-  if (isFetching) {
-    return <p>{'isFetching...'}</p>;
-  }
+};
+
+const Notification = ({ isFetching, error }: Props) => {
   if (error) {
     return <p>{error.message}</p>;
+  }
+  if (isFetching) {
+    return <p>{'Fetching...'}</p>;
   }
   return null;
 };

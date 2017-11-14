@@ -6,17 +6,9 @@ import type { Dispatch } from 'redux';
 import type { User } from '../types/users';
 import type { Error } from '../types/common';
 
-export const SET_USERS_FILTER = 'SET_USERS_FILTER';
 export const FETCH_USERS_REQUEST = 'FETCH_USERS_REQUEST';
 export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
 export const FETCH_USERS_FAILURE = 'FETCH_USERS_FAILURE';
-
-export const setUsersFilter = (filter: string) => {
-  return {
-    type: SET_USERS_FILTER,
-    filter,
-  };
-};
 
 export const fetchUsersRequest = () => {
   return {

@@ -1,7 +1,5 @@
 // @flow
 
-import type { Dispatch } from 'redux';
-
 import type { Error } from './common';
 
 export type User = {
@@ -11,18 +9,8 @@ export type User = {
 
 export type UserListState = {
   isFetching: boolean,
-  filter: ?string,
   users: ?Array<User>,
   error: ?Error,
-};
-
-export type UserListProps = {
-  dispatch: Dispatch<*>,
-} & UserListState;
-
-export type SetUsersFilter = {
-  type: 'SET_USERS_FILTER',
-  filter: string,
 };
 
 export type FetchUsersRequest = {
@@ -40,7 +28,6 @@ export type FetchUsersFailure = {
 };
 
 export type UserListAction =
-  | SetUsersFilter
   | FetchUsersRequest
   | FetchUsersSuccess
   | FetchUsersFailure;
